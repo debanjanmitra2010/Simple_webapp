@@ -15,8 +15,10 @@ pipeline {
     
     stage ('Build') {
       steps {
-      sh 'mvn clean package'
+        sshagent(['AWS-Server-Debanjan']) {
+      sh 'ubuntu@54.165.222.36:mvn clean package'
        }
+      }
     }
     
         stage ('Deploy-To-Tomcat') {
