@@ -6,7 +6,6 @@ pipeline {
   stages {
     stage ('Initialize') {
       steps {
-        sshagent(['AWS-Server-Debanjan']) {
         sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
