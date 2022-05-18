@@ -3,11 +3,13 @@ pipeline {
   stages {
     stage ('Initialize') {
       steps {
+        sshagent(['AWS-Server-Debanjan']) {
         sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
+                    ubuntu@54.165.222.36:echo "PATH = ${PATH}"
+                    ubuntu@54.165.222.36:echo "M2_HOME = ${M2_HOME}"
             ''' 
       }
+    }
     }
     
     stage ('Build') {
